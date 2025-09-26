@@ -1,0 +1,52 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    int choice;
+    double amount, converted;
+
+    cout << "------ Currency Converter ------\n";
+    cout << "1. INR to USD\n";
+    cout << "2. USD to INR\n";
+    cout << "3. INR to EUR\n";
+    cout << "4. EUR to INR\n";
+    cout << "5. INR to GBP\n";
+    cout << "6. GBP to INR\n";
+    cout << "Enter your choice (1-6): ";
+    cin >> choice;
+
+    cout << "Enter amount: ";
+    cin >> amount;
+
+    switch(choice) {
+        case 1:
+            converted = amount * 0.012; // INR to USD
+            cout << fixed << setprecision(2) << amount << " INR = " << converted << " USD\n";
+            break;
+        case 2:
+            converted = amount * 83.0; // USD to INR
+            cout << fixed << setprecision(2) << amount << " USD = " << converted << " INR\n";
+            break;
+        case 3:
+            converted = amount * 0.011; // INR to EUR
+            cout << fixed << setprecision(2) << amount << " INR = " << converted << " EUR\n";
+            break;
+        case 4:
+            converted = amount * 90.0; // EUR to INR
+            cout << fixed << setprecision(2) << amount << " EUR = " << converted << " INR\n";
+            break;
+        case 5:
+            converted = amount * 0.0096; // INR to GBP
+            cout << fixed << setprecision(2) << amount << " INR = " << converted << " GBP\n";
+            break;
+        case 6:
+            converted = amount * 104.0; // GBP to INR
+            cout << fixed << setprecision(2) << amount << " GBP = " << converted << " INR\n";
+            break;
+        default:
+            cout << "Invalid choice!\n";
+    }
+
+    return 0;
+}
