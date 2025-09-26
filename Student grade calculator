@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int rollNo;
+    int marks[5];   // marks for 5 subjects
+    int total;
+    float percentage;
+    char grade;
+
+public:
+    void inputData() {
+        cout << "Enter student name: ";
+        getline(cin, name);
+        cout << "Enter roll number: ";
+        cin >> rollNo;
+
+        total = 0;
+        cout << "Enter marks for 5 subjects (out of 100):\n";
+        for (int i = 0; i < 5; i++) {
+            cout << "Subject " << i + 1 << ": ";
+            cin >> marks[i];
+            total += marks[i];
+        }
+
+        percentage = total / 5.0;
+
+        if (percentage >= 90) grade = 'A';
+        else if (percentage >= 75) grade = 'B';
+        else if (percentage >= 60) grade = 'C';
+        else if (percentage >= 40) grade = 'D';
+        else grade = 'F';
+    }
+
+    void displayResult() {
+        cout << "\n---- Student Report Card ----\n";
+        cout << "Name: " << name << endl;
+        cout << "Roll No: " << rollNo << endl;
+        cout << "Total Marks: " << total << " / 500" << endl;
+        cout << "Percentage: " << percentage << "%" << endl;
+        cout << "Grade: " << grade << endl;
+        cout << "-----------------------------\n";
+    }
+};
+
+int main() {
+    Student s;
+    cin.ignore();  // to handle getline issue if previous input used
+    s.inputData();
+    s.displayResult();
+
+    return 0;
+}
